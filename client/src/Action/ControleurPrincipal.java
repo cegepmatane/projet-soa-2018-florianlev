@@ -1,5 +1,6 @@
 package Action;
 
+import DAO.VaisseauDAO;
 import vue.VueSoa;
 
 public class ControleurPrincipal {
@@ -14,8 +15,10 @@ public class ControleurPrincipal {
 	
 	public void afficherContenu()
 	{
-		System.out.println("test");
-	}
+		
+		VaisseauDAO vaisseauDAO = new VaisseauDAO();
+		
+		vaisseauDAO.rechercherVaisseau();	}
 	
 	
 }
