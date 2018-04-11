@@ -10,7 +10,7 @@
 header("Content-type: text/xml");
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
-<vaisseau>
+<vaisseaux>
 <?php
 foreach($listeVaisseau as $vaisseau)
 {
@@ -26,4 +26,4 @@ foreach($listeVaisseau as $vaisseau)
 	<?php	
 }
 ?>
-</vaisseau>
+</vaisseaux>
