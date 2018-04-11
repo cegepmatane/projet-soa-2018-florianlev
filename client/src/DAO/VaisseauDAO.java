@@ -13,6 +13,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import modele.Vaisseau;
@@ -57,6 +59,23 @@ public class VaisseauDAO<T> {
 			
 			List<Vaisseau> listeVaisseau = new ArrayList<Vaisseau>();
 			NodeList listeNoeudsVaisseau = document.getElementsByTagName("vaisseau");
+			for(int position = 0; position < listeNoeudsVaisseau.getLength(); position++)
+			{
+				Element noeudVaisseau = (Element)listeNoeudsVaisseau.item(position);
+				String id = noeudVaisseau.getElementsByTagName("id").item(0).getTextContent();
+				String nomModele = noeudVaisseau.getElementsByTagName("nomModele").item(0).getTextContent();
+				String kilometrage = noeudVaisseau.getElementsByTagName("kilometrage").item(0).getTextContent();
+				String nombreDePlace = noeudVaisseau.getElementsByTagName("nombrePlace").item(0).getTextContent();
+				String vitesse = noeudVaisseau.getElementsByTagName("vitesse").item(0).getTextContent();
+
+				System.out.println("ID : " + id);
+				System.out.println("nom : " + nomModele);
+				System.out.println("kilometrage : " + kilometrage);
+				System.out.println("nombreDePlace : " + nombreDePlace);
+				System.out.println("vitesse : " + vitesse);
+
+			}
+			
 			
 			
 		}catch (ParserConfigurationException e) 
