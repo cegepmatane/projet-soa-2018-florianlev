@@ -26,23 +26,9 @@ public class ControleurPrincipal {
 		VaisseauDAO vaisseauDAO = new VaisseauDAO();
 		
 		List<Vaisseau> listeVaisseau =  vaisseauDAO.rechercherVaisseau();	
+		vue.setListeVaisseaux(listeVaisseau);
 		
 		System.out.println(listeVaisseau);
-		for (Vaisseau vaisseau : listeVaisseau)
-		{
-			System.out.println(vaisseau.getNomModele());
-			/*listeVaisseaux.add(vaisseau.getNomModele());
-			listeVaisseaux.add(vaisseau.getKilometrage());
-			listeVaisseaux.add(vaisseau.getNombreDePlace());
-			listeVaisseaux.add(vaisseau.getVitesse());
-			listeVaisseaux.add(vaisseau.getKilometrage());
-*/
-
-		}
-		
-		
-		
 	}
-	
-	
+
 }
