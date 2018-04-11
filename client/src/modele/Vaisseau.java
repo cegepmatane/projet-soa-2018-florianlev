@@ -4,10 +4,17 @@ public class Vaisseau {
 	
 	protected int idVaisseau;
 	protected String nomModele;
-	protected int kilometrage;
-	protected int nombreDePlace;
-	protected int vitesse;
+	protected String kilometrage;
+	protected String nombreDePlace;
+	protected String vitesse;
 	
+	public Vaisseau()
+	{
+		nomModele = "";
+		kilometrage = "";
+		nombreDePlace = "";
+		vitesse = "";
+	}
 	
 	public int getIdVaisseau() {
 		return idVaisseau;
@@ -21,24 +28,25 @@ public class Vaisseau {
 	public void setNomModele(String nomModele) {
 		this.nomModele = nomModele;
 	}
-	public int getKilometrage() {
+	public String getKilometrage() {
 		return kilometrage;
 	}
-	public void setKilometrage(int kilometrage) {
+	public void setKilometrage(String kilometrage) {
 		this.kilometrage = kilometrage;
 	}
-	public int getNombreDePlace() {
+	public String getNombreDePlace() {
 		return nombreDePlace;
 	}
-	public void setNombreDePlace(int nombreDePlace) {
+	public void setNombreDePlace(String nombreDePlace) {
 		this.nombreDePlace = nombreDePlace;
 	}
-	public int getVitesse() {
+	public String getVitesse() {
 		return vitesse;
 	}
-	public void setVitesse(int vitesse) {
+	public void setVitesse(String vitesse) {
 		this.vitesse = vitesse;
 	}
+	
 	
 
 }

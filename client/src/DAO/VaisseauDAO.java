@@ -19,7 +19,7 @@ import org.xml.sax.SAXException;
 
 import modele.Vaisseau;
 
-public class VaisseauDAO<T> {
+public class VaisseauDAO{
 	
 	List<Vaisseau> listeVaisseau;
 	String xml = null;
@@ -57,25 +57,36 @@ public class VaisseauDAO<T> {
 			String racine = document.getDocumentElement().getNodeName();
 			//System.out.println(racine);
 			
-			List<Vaisseau> listeVaisseau = new ArrayList<Vaisseau>();
 			NodeList listeNoeudsVaisseau = document.getElementsByTagName("vaisseau");
 			for(int position = 0; position < listeNoeudsVaisseau.getLength(); position++)
 			{
+				Vaisseau vaisseau = new Vaisseau();
 				Element noeudVaisseau = (Element)listeNoeudsVaisseau.item(position);
-				String id = noeudVaisseau.getElementsByTagName("id").item(0).getTextContent();
+				//String id = noeudVaisseau.getElementsByTagName("id").item(0).getTextContent();
+				//vaisseau.setIdVaisseau("ID : " + id);
+
 				String nomModele = noeudVaisseau.getElementsByTagName("nomModele").item(0).getTextContent();
+				vaisseau.setNomModele(nomModele);
 				String kilometrage = noeudVaisseau.getElementsByTagName("kilometrage").item(0).getTextContent();
 				String nombreDePlace = noeudVaisseau.getElementsByTagName("nombrePlace").item(0).getTextContent();
 				String vitesse = noeudVaisseau.getElementsByTagName("vitesse").item(0).getTextContent();
 
-				System.out.println("ID : " + id);
-				System.out.println("nom : " + nomModele);
+				//System.out.println("ID : " + id);
+				/*System.out.println("nom : " + nomModele);
 				System.out.println("kilometrage : " + kilometrage);
 				System.out.println("nombreDePlace : " + nombreDePlace);
 				System.out.println("vitesse : " + vitesse);
+				*/
+				//Vaisseau vaisseau = new Vaisseau();
+				//vaisseau.setIdVaisseau(Integer.parseInt(id));
+				//vaisseau.setNomModele(nomModele);
+				listeVaisseau.add(vaisseau);
+				
+				
+				//System.out.println(listeVaisseau);
 
 			}
-			
+
 			
 			
 		}catch (ParserConfigurationException e) 
@@ -88,8 +99,9 @@ public class VaisseauDAO<T> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(listeVaisseau);
 		return listeVaisseau;
-		
+
 	}
 
 }
