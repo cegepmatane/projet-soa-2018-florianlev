@@ -14,6 +14,8 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -31,6 +33,11 @@ public class VaisseauDAO{
 		listeVaisseau = new ArrayList<>();
 		
 		
+		
+	}
+	
+	public List<Vaisseau> rechercherVaisseau()
+	{
 		try
 		{
 			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/");
@@ -44,10 +51,6 @@ public class VaisseauDAO{
 		{
 			e.printStackTrace();
 		}
-	}
-	
-	public List<Vaisseau> rechercherVaisseau()
-	{
 		
 		try
 		{
@@ -55,14 +58,14 @@ public class VaisseauDAO{
 			@SuppressWarnings("deprecation")
 			Document document = parseur.parse(new StringBufferInputStream(xml));
 			String racine = document.getDocumentElement().getNodeName();
-			//System.out.println(racine);
+			System.out.println(racine);
 			
 			NodeList listeNoeudsVaisseau = document.getElementsByTagName("vaisseau");
 			for(int position = 0; position < listeNoeudsVaisseau.getLength(); position++)
 			{
 				Vaisseau vaisseau = new Vaisseau();
 				Element noeudVaisseau = (Element)listeNoeudsVaisseau.item(position);
-				//String id = noeudVaisseau.getElementsByTagName("id").item(0).getTextContent();
+				String id = noeudVaisseau.getElementsByTagName("id").item(0).getTextContent();
 				//vaisseau.setIdVaisseau("ID : " + id);
 
 				String nomModele = noeudVaisseau.getElementsByTagName("nomModele").item(0).getTextContent();
@@ -78,12 +81,12 @@ public class VaisseauDAO{
 				System.out.println("vitesse : " + vitesse);
 				*/
 				//Vaisseau vaisseau = new Vaisseau();
-				//vaisseau.setIdVaisseau(Integer.parseInt(id));
-				//vaisseau.setNomModele(nomModele);
+				vaisseau.setIdVaisseau(Integer.parseInt(id));
+				vaisseau.setNomModele(nomModele);
 				listeVaisseau.add(vaisseau);
 				
 				
-				//System.out.println(listeVaisseau);
+				System.out.println(listeVaisseau);
 
 			}
 
