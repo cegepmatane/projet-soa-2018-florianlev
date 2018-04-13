@@ -34,7 +34,7 @@ public class VoyagesDAO {
 	{
 		try
 		{
-			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVoyages.php");
+			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVoyages.php?idVaisseau=1");
 			String derniereBalise = "</voyages>";
 			InputStream flux = urlListeVaisseau.openConnection().getInputStream();
 			Scanner lecteur = new Scanner(flux);
