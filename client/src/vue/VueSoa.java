@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modele.Vaisseau;
+import modele.Voyage;
 
 public class VueSoa extends Application {
 	
@@ -19,6 +20,8 @@ public class VueSoa extends Application {
 	protected Stage scenePrincipale;
 	
 	protected List<Vaisseau> listeVaisseaux;
+	protected List<Voyage> listeVoyages;
+
 	protected Text texte1;
 	
 	public VueSoa()
@@ -70,6 +73,12 @@ public class VueSoa extends Application {
 
 	public void setListeVaisseaux(List<Vaisseau> listeVaisseaux) {
 		this.listeVaisseaux = listeVaisseaux;
+	}
+	
+	public void setListeVoyages (List<Voyage> listeVoyages)
+	{
+		this.listeVoyages = listeVoyages;
+
 	}
 
 

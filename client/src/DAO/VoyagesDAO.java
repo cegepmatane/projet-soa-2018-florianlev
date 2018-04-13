@@ -64,6 +64,7 @@ public class VoyagesDAO {
 
 				String depart = noeudVoyage.getElementsByTagName("depart").item(0).getTextContent();
 				voyage.setDepart(depart);
+				
 				String arrivee = noeudVoyage.getElementsByTagName("arrivee").item(0).getTextContent();
 				voyage.setArrivee(arrivee);
 				String prix = noeudVoyage.getElementsByTagName("prix").item(0).getTextContent();
@@ -75,7 +76,7 @@ public class VoyagesDAO {
 				listeVoyage.add(voyage);
 				
 				
-				System.out.println(listeVoyage);
+				//System.out.println(listeVoyage);
 
 			}
 

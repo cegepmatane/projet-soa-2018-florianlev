@@ -6,6 +6,7 @@ import java.util.List;
 import DAO.VaisseauDAO;
 import DAO.VoyagesDAO;
 import modele.Vaisseau;
+import modele.Voyage;
 import vue.VueSoa;
 
 public class ControleurPrincipal {
@@ -26,11 +27,12 @@ public class ControleurPrincipal {
 		
 		VaisseauDAO vaisseauDAO = new VaisseauDAO();
 		VoyagesDAO voyageDAO = new VoyagesDAO();
+		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage();
+		vue.setListeVoyages(listeVoyage);
 		
 		List<Vaisseau> listeVaisseau =  vaisseauDAO.rechercherVaisseau();	
 		vue.setListeVaisseaux(listeVaisseau);
 		
-		System.out.println(listeVaisseau);
 	}
 
 }
