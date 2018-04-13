@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DAO.VaisseauDAO;
+import DAO.VoyagesDAO;
 import modele.Vaisseau;
 import vue.VueSoa;
 
@@ -24,6 +25,7 @@ public class ControleurPrincipal {
 		List<String> listeVaisseaux = new ArrayList<String>();
 		
 		VaisseauDAO vaisseauDAO = new VaisseauDAO();
+		VoyagesDAO voyageDAO = new VoyagesDAO();
 		
 		List<Vaisseau> listeVaisseau =  vaisseauDAO.rechercherVaisseau();	
 		vue.setListeVaisseaux(listeVaisseau);

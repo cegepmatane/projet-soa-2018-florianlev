@@ -32,8 +32,6 @@ public class VaisseauDAO{
 	{
 		listeVaisseau = new ArrayList<>();
 		
-		
-		
 	}
 	
 	public List<Vaisseau> rechercherVaisseau()

@@ -5,8 +5,8 @@ public class Voyage {
 	protected int idVoyage;
 	protected String depart;
 	protected String arrivee;
-	protected int prix;
-	protected int distance;
+	protected String prix;
+	protected String distance;
 	
 	
 	public int getIdVoyage() {
@@ -27,16 +27,16 @@ public class Voyage {
 	public void setArrivee(String arrivee) {
 		this.arrivee = arrivee;
 	}
-	public int getPrix() {
+	public String getPrix() {
 		return prix;
 	}
-	public void setPrix(int prix) {
+	public void setPrix(String prix) {
 		this.prix = prix;
 	}
-	public int getDistance() {
+	public String getDistance() {
 		return distance;
 	}
-	public void setDistance(int distance) {
+	public void setDistance(String distance) {
 		this.distance = distance;
 	}
 
