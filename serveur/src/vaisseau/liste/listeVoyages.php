@@ -3,7 +3,14 @@
 include "../../accesseur/VoyagesDAO.php";
 $voyagesDAO = new VoyagesDAO();
 //print_r($vaisseauDAO);
-$listeVoyage = $voyagesDAO->listerVoyage();
+if(!empty($_GET['idVaisseau']))
+{
+    $listeVoyage = $voyagesDAO->voyagesPourUnVaisseau($_GET['idVaisseau']);
+}
+else{
+    $listeVoyage = $voyagesDAO->listerVoyage();
+
+}
 //print_r($listeVaisseau);
 
 
