@@ -27,7 +27,7 @@ public class ControleurPrincipal {
 		
 		VaisseauDAO vaisseauDAO = new VaisseauDAO();
 		VoyagesDAO voyageDAO = new VoyagesDAO();
-		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage();
+		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage(1);
 		vue.setListeVoyages(listeVoyage);
 		
 		List<Vaisseau> listeVaisseau =  vaisseauDAO.rechercherVaisseau();	

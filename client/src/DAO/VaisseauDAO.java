@@ -38,7 +38,7 @@ public class VaisseauDAO{
 	{
 		try
 		{
-			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/");
+			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVaisseau.php");
 			String derniereBalise = "</vaisseaux>";
 			InputStream flux = urlListeVaisseau.openConnection().getInputStream();
 			Scanner lecteur = new Scanner(flux);
@@ -64,7 +64,6 @@ public class VaisseauDAO{
 				Vaisseau vaisseau = new Vaisseau();
 				Element noeudVaisseau = (Element)listeNoeudsVaisseau.item(position);
 				String id = noeudVaisseau.getElementsByTagName("id").item(0).getTextContent();
-				//vaisseau.setIdVaisseau("ID : " + id);
 
 				String nomModele = noeudVaisseau.getElementsByTagName("nomModele").item(0).getTextContent();
 				vaisseau.setNomModele(nomModele);
@@ -80,12 +79,12 @@ public class VaisseauDAO{
 				*/
 				//Vaisseau vaisseau = new Vaisseau();
 				vaisseau.setIdVaisseau(Integer.parseInt(id));
+
 				vaisseau.setNomModele(nomModele);
+				
+				System.out.println(vaisseau.getIdVaisseau());
 				listeVaisseau.add(vaisseau);
 				
-				
-				System.out.println(listeVaisseau);
-
 			}
 
 			

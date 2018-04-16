@@ -30,11 +30,11 @@ public class VoyagesDAO {
 		listeVoyage = new ArrayList<>();
 	}
 	
-	public List<Voyage> rechercherVoyage()
+	public List<Voyage> rechercherVoyage(int $idVaisseau)
 	{
 		try
 		{
-			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVoyages.php?idVaisseau=1");
+			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVoyages.php?idVaisseau=" + $idVaisseau);
 			String derniereBalise = "</voyages>";
 			InputStream flux = urlListeVaisseau.openConnection().getInputStream();
 			Scanner lecteur = new Scanner(flux);

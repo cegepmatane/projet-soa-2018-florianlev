@@ -68,11 +68,7 @@ public class VueSoa extends Application {
 			racine.getChildren().addAll(labelVaisseau);
 			
 		}
-		
-		for(Voyage unVoyage : listeVoyages)
-		{
-			System.out.println(unVoyage.getDepart());
-		}
+
 	}
 
 
