@@ -8,6 +8,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -23,6 +25,9 @@ public class VueSoa extends Application {
 	protected List<Voyage> listeVoyages;
 
 	protected Text texte1;
+	
+	protected Tab ongletListerVoyages;
+	protected Tab ongletListerVaisseau;
 	
 	public VueSoa()
 	{
@@ -44,9 +49,16 @@ public class VueSoa extends Application {
 		ScrollPane scrollListeVaisseau = new ScrollPane();
 		
 		scrollListeVaisseau.setContent(vboxVaisseau);
+		
+		
+		TabPane racine = new TabPane();
+		
 		afficherVaisseau(vboxVaisseau);
 		
-		Scene scene = new Scene(scrollListeVaisseau, 300,250);
+		Scene scene = new Scene(racine, 300,250);
+		
+		ongletListerVoyages = new Tab("");
+		
 		
 		scenePrincipale.setScene(scene);
 		scenePrincipale.setTitle("Planet");
