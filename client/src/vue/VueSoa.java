@@ -36,6 +36,10 @@ public class VueSoa extends Application {
 	
 	protected Tab ongletListerVoyages;
 	protected Tab ongletListerVaisseau;
+	protected Label labelDepart;
+	protected Label labelArrivee;
+	protected Label labelDistance;
+	protected Label labelPrix;
 	
 	public VueSoa()
 	{
@@ -175,13 +179,14 @@ public class VueSoa extends Application {
 		for(Voyage unVoyage : listeVoyagePourUnVaisseau )
 		{
 			System.out.println(unVoyage);
-			Label labelDepart = new Label(unVoyage.getDepart());
-			Label labelArrivee = new Label(unVoyage.getArrivee());
-			Label labelDistance = new Label(unVoyage.getDistance());
-			Label labelprix= new Label(unVoyage.getPrix());
+			labelDepart = new Label("Depart:" + unVoyage.getDepart());
+			labelArrivee = new Label("Arrivee :" + unVoyage.getArrivee());
+			labelDistance = new Label("Distance :" + unVoyage.getDistance());
+			labelPrix= new Label("Prix :" + unVoyage.getPrix());
 			labelDepart.setTranslateX(0);
 			labelDepart.setTranslateY(decalage);
-			racine.getChildren().addAll(labelDepart,labelArrivee,labelDistance,labelprix);
+			
+			racine.getChildren().addAll(labelDepart,labelArrivee,labelDistance,labelPrix);
 			
 		}
 		
