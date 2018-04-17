@@ -12,11 +12,14 @@ import vue.VueSoa;
 public class ControleurPrincipal {
 	
 	protected VueSoa vue;
+	protected VoyagesDAO voyageDAO;
 	
 	
 	public ControleurPrincipal(VueSoa vue)
 	{
 		this.vue = vue;
+		VoyagesDAO voyageDAO = new VoyagesDAO();
+
 		
 	}
 	
@@ -27,13 +30,17 @@ public class ControleurPrincipal {
 		
 		
 		VaisseauDAO vaisseauDAO = new VaisseauDAO();
-		VoyagesDAO voyageDAO = new VoyagesDAO();
-		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage(0);
-		vue.setListeVoyages(listeVoyage);
+		
 		
 		List<Vaisseau> listeVaisseau =  vaisseauDAO.rechercherVaisseau();	
 		vue.setListeVaisseaux(listeVaisseau);
 		
+		
+	}
+	
+	public void afficherVoyagesPourUnVaisseau(int id) {
+		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage(id);
+		vue.setListeVoyages(listeVoyage);
 		
 	}
 	

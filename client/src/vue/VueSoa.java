@@ -30,6 +30,7 @@ public class VueSoa extends Application {
 	
 	protected List<Vaisseau> listeVaisseaux;
 	protected List<Voyage> listeVoyages;
+	protected List<Voyage> listeVoyagePourUnVaisseau;
 
 	protected Text texte1;
 	
@@ -145,9 +146,9 @@ public class VueSoa extends Application {
 	}
 
 
-
-
 	protected void afficherSceneDetailVaisseau(int id) {
+		
+		//System.out.println("id " + id);
 		
 		StackPane racine = new StackPane();
 		Scene scene = new Scene(racine, 800,800);
@@ -174,6 +175,11 @@ public class VueSoa extends Application {
 	{
 		this.listeVoyages = listeVoyages;
 
+	}
+	
+	public void setListeVoyagePourUnVaisseau(List<Voyage> listeVoyagePourUnVaisseau) {
+		this.listeVoyagePourUnVaisseau = listeVoyagePourUnVaisseau;
+		
 	}
 
 }
