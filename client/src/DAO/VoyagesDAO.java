@@ -30,11 +30,15 @@ public class VoyagesDAO {
 		listeVoyage = new ArrayList<>();
 	}
 	
-	public List<Voyage> rechercherVoyage(int $idVaisseau)
+	
+	
+	public List<Voyage> rechercherVoyage(int idVaisseau)
 	{
 		try
 		{
-			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVoyages.php?idVaisseau=" + $idVaisseau);
+			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVoyages.php?idVaisseau=" + idVaisseau);
+			System.out.println(urlListeVaisseau);
+			
 			String derniereBalise = "</voyages>";
 			InputStream flux = urlListeVaisseau.openConnection().getInputStream();
 			Scanner lecteur = new Scanner(flux);
@@ -54,6 +58,11 @@ public class VoyagesDAO {
 			String racine = document.getDocumentElement().getNodeName();
 			System.out.println(racine);
 			
+			if(idVaisseau >0)
+			{
+				listeVoyage.clear();
+			}
+			
 			NodeList listeNoeudVoyages = document.getElementsByTagName("voyage");
 			for(int position = 0; position < listeNoeudVoyages.getLength(); position++)
 			{
@@ -64,7 +73,6 @@ public class VoyagesDAO {
 
 				String depart = noeudVoyage.getElementsByTagName("depart").item(0).getTextContent();
 				voyage.setDepart(depart);
-				
 				String arrivee = noeudVoyage.getElementsByTagName("arrivee").item(0).getTextContent();
 				voyage.setArrivee(arrivee);
 				String prix = noeudVoyage.getElementsByTagName("prix").item(0).getTextContent();
@@ -74,6 +82,7 @@ public class VoyagesDAO {
 
 				//voyage.setIdVaisseau(Integer.parseInt(id));
 				listeVoyage.add(voyage);
+
 				
 				
 				//System.out.println(listeVoyage);

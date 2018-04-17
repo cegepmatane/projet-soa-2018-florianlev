@@ -178,7 +178,6 @@ public class VueSoa extends Application {
 
 		for(Voyage unVoyage : listeVoyagePourUnVaisseau )
 		{
-			System.out.println(unVoyage);
 			labelDepart = new Label("Depart:" + unVoyage.getDepart());
 			labelArrivee = new Label("Arrivee :" + unVoyage.getArrivee());
 			labelDistance = new Label("Distance :" + unVoyage.getDistance());
