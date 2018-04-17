@@ -25,6 +25,7 @@ public class ControleurPrincipal {
 		
 		List<String> listeVaisseaux = new ArrayList<String>();
 		
+		
 		VaisseauDAO vaisseauDAO = new VaisseauDAO();
 		VoyagesDAO voyageDAO = new VoyagesDAO();
 		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage(0);
@@ -33,6 +34,8 @@ public class ControleurPrincipal {
 		List<Vaisseau> listeVaisseau =  vaisseauDAO.rechercherVaisseau();	
 		vue.setListeVaisseaux(listeVaisseau);
 		
+		
 	}
+	
 
 }

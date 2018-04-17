@@ -1,5 +1,6 @@
 package vue;
 
+import java.io.Console;
 import java.util.List;
 
 import Action.ControleurPrincipal;
@@ -55,11 +56,10 @@ public class VueSoa extends Application {
 		scrollListeVaisseau.setContent(vboxVaisseau);
 		scrollListeVoyage.setContent(vboxVoyage);
 
-		
-		
 		TabPane racine = new TabPane();
 		
 		afficherVaisseau(vboxVaisseau);
+		afficherVoyages(vboxVoyage);
 		
 		Scene scene = new Scene(racine, 800,800);
 		
@@ -83,10 +83,11 @@ public class VueSoa extends Application {
 	
 	protected void afficherVoyages(VBox racine)
 	{
-			int decalage = 80;
+		int decalage = 80;
 		
 		for(Voyage unVoyage : listeVoyages )
 		{
+			System.out.println(unVoyage);
 			Label labelVoyage = new Label(unVoyage.getDepart());
 			labelVoyage.setTranslateX(0);
 			labelVoyage.setTranslateY(decalage);
