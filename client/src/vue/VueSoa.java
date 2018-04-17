@@ -61,14 +61,20 @@ public class VueSoa extends Application {
 		
 		afficherVaisseau(vboxVaisseau);
 		
-		Scene scene = new Scene(racine, 300,250);
+		Scene scene = new Scene(racine, 800,800);
+		
+		ongletListerVaisseau = new Tab("");
+		ongletListerVaisseau.setText("Liste des vaisseau");
+		ongletListerVaisseau.setContent(scrollListeVaisseau);
+		racine.getTabs().add(ongletListerVaisseau);
 		
 		ongletListerVoyages = new Tab("");
 		ongletListerVoyages.setText("Liste des voyages");
-		ongletListerVoyages.setContent(scrollListeVaisseau);
+		ongletListerVoyages.setContent(scrollListeVoyage);
+		racine.getTabs().add(ongletListerVoyages);
 		
 		scenePrincipale.setScene(scene);
-		scenePrincipale.setTitle("Planet");
+		scenePrincipale.setTitle("Voyages");
 		scenePrincipale.show();
 		
 		
@@ -77,7 +83,16 @@ public class VueSoa extends Application {
 	
 	protected void afficherVoyages(VBox racine)
 	{
+			int decalage = 80;
 		
+		for(Voyage unVoyage : listeVoyages )
+		{
+			Label labelVoyage = new Label(unVoyage.getDepart());
+			labelVoyage.setTranslateX(0);
+			labelVoyage.setTranslateY(decalage);
+			racine.getChildren().addAll(labelVoyage);
+			
+		}
 		
 	}
 	
