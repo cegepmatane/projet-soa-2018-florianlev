@@ -1,5 +1,6 @@
 package vue;
 
+import javafx.scene.control.Button;
 import java.io.Console;
 import java.util.List;
 
@@ -49,6 +50,9 @@ public class VueSoa extends Application {
 		vboxVaisseau.setAlignment(Pos.TOP_LEFT);
 		vboxVoyage.setAlignment(Pos.TOP_LEFT);
 		
+		
+		
+				
 		
 		ScrollPane scrollListeVaisseau = new ScrollPane();
 		ScrollPane scrollListeVoyage = new ScrollPane();
@@ -104,9 +108,16 @@ public class VueSoa extends Application {
 		for(Vaisseau unVaisseau : listeVaisseaux )
 		{
 			Label labelVaisseau = new Label(unVaisseau.getNomModele());
+			Button bouttonDetailVaisseau = new Button("Detail");
+			
+	
 			labelVaisseau.setTranslateX(0);
 			labelVaisseau.setTranslateY(decalage);
-			racine.getChildren().addAll(labelVaisseau);
+			
+			bouttonDetailVaisseau.setId(String.valueOf(unVaisseau.getIdVaisseau()));
+			bouttonDetailVaisseau.setTranslateX(100);
+			bouttonDetailVaisseau.setTranslateY(decalage-25);
+			racine.getChildren().addAll(labelVaisseau, bouttonDetailVaisseau);
 			
 		}
 
