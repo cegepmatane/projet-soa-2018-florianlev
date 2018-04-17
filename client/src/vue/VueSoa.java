@@ -4,14 +4,19 @@ import javafx.scene.control.Button;
 import java.io.Console;
 import java.util.List;
 
+import javax.xml.stream.events.StartDocument;
+
 import Action.ControleurPrincipal;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -37,22 +42,25 @@ public class VueSoa extends Application {
 	}
 	
 
+	
+	public void start(Stage scenePrincipale)
+	{
+		this.scenePrincipale = scenePrincipale;
+		
+		this.afficerScenePrincipale();
+
+		
+	}
 
 
-	@Override
-	public void start(Stage scenePrincipale){
+	protected void afficerScenePrincipale(){
 		controleur.afficherContenu();
 
-		this.scenePrincipale = scenePrincipale;
 		VBox vboxVaisseau = new VBox();
 		VBox vboxVoyage = new VBox();
 		
 		vboxVaisseau.setAlignment(Pos.TOP_LEFT);
 		vboxVoyage.setAlignment(Pos.TOP_LEFT);
-		
-		
-		
-				
 		
 		ScrollPane scrollListeVaisseau = new ScrollPane();
 		ScrollPane scrollListeVoyage = new ScrollPane();
@@ -117,11 +125,45 @@ public class VueSoa extends Application {
 			bouttonDetailVaisseau.setId(String.valueOf(unVaisseau.getIdVaisseau()));
 			bouttonDetailVaisseau.setTranslateX(100);
 			bouttonDetailVaisseau.setTranslateY(decalage-25);
+			this.ajouterEvenementDetail(bouttonDetailVaisseau);
 			racine.getChildren().addAll(labelVaisseau, bouttonDetailVaisseau);
 			
 		}
 
 	}
+
+
+	protected void ajouterEvenementDetail(Button boutton) 
+	{
+		boutton.setOnAction(new EventHandler<ActionEvent>() {
+			
+			public void handle(ActionEvent e) {
+				afficherSceneDetailVaisseau(Integer.parseInt(boutton.getId()));
+			}
+		});
+		
+	}
+
+
+
+
+	protected void afficherSceneDetailVaisseau(int id) {
+		
+		StackPane racine = new StackPane();
+		Scene scene = new Scene(racine, 800,800);
+		changerScene(scene);
+		
+	}
+
+
+
+
+	private void changerScene(Scene scene) {
+		scenePrincipale.setScene(scene);
+		scenePrincipale.setTitle("Voyages");
+		scenePrincipale.show();
+	}
+
 
 
 	public void setListeVaisseaux(List<Vaisseau> listeVaisseaux) {
