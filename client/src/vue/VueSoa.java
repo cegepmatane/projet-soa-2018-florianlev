@@ -43,12 +43,18 @@ public class VueSoa extends Application {
 
 		this.scenePrincipale = scenePrincipale;
 		VBox vboxVaisseau = new VBox();
+		VBox vboxVoyage = new VBox();
 		
 		vboxVaisseau.setAlignment(Pos.TOP_LEFT);
+		vboxVoyage.setAlignment(Pos.TOP_LEFT);
+		
 		
 		ScrollPane scrollListeVaisseau = new ScrollPane();
-		
+		ScrollPane scrollListeVoyage = new ScrollPane();
+
 		scrollListeVaisseau.setContent(vboxVaisseau);
+		scrollListeVoyage.setContent(vboxVoyage);
+
 		
 		
 		TabPane racine = new TabPane();
@@ -58,12 +64,19 @@ public class VueSoa extends Application {
 		Scene scene = new Scene(racine, 300,250);
 		
 		ongletListerVoyages = new Tab("");
-		
+		ongletListerVoyages.setText("Liste des voyages");
+		ongletListerVoyages.setContent(scrollListeVaisseau);
 		
 		scenePrincipale.setScene(scene);
 		scenePrincipale.setTitle("Planet");
 		scenePrincipale.show();
 		
+		
+		
+	}
+	
+	protected void afficherVoyages(VBox racine)
+	{
 		
 		
 	}
