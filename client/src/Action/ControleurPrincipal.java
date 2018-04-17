@@ -18,20 +18,26 @@ public class ControleurPrincipal {
 	public ControleurPrincipal(VueSoa vue)
 	{
 		this.vue = vue;
-		VoyagesDAO voyageDAO = new VoyagesDAO();
 
 		
 	}
 	
+	public ControleurPrincipal()
+	{
+
+	}
+	
 	public void afficherContenu()
 	{
-		
-		List<String> listeVaisseaux = new ArrayList<String>();
-		
+			
 		
 		VaisseauDAO vaisseauDAO = new VaisseauDAO();
+		VoyagesDAO voyageDAO = new VoyagesDAO();
+
 		
-		
+		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage(0);
+		vue.setListeVoyages(listeVoyage);
+
 		List<Vaisseau> listeVaisseau =  vaisseauDAO.rechercherVaisseau();	
 		vue.setListeVaisseaux(listeVaisseau);
 		
@@ -39,8 +45,9 @@ public class ControleurPrincipal {
 	}
 	
 	public void afficherVoyagesPourUnVaisseau(int id) {
-		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage(id);
-		vue.setListeVoyagePourUnVaisseau(listeVoyage);
+		List<Voyage> listeVoyagePourUnVaisseau = voyageDAO.rechercherVoyage(id);
+	
+		vue.setListeVoyagePourUnVaisseau(listeVoyagePourUnVaisseau);
 		
 	}
 	

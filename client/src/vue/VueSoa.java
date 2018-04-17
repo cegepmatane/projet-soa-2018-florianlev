@@ -107,7 +107,6 @@ public class VueSoa extends Application {
 			racine.getChildren().addAll(labelVoyage);
 			
 		}
-		
 	}
 	
 	protected void afficherVaisseau(VBox racine)
@@ -150,12 +149,39 @@ public class VueSoa extends Application {
 		
 		//System.out.println("id " + id);
 		
-		StackPane racine = new StackPane();
-		Scene scene = new Scene(racine, 800,800);
+		VBox vboxVaisseau = new VBox();
+		
+		vboxVaisseau.setAlignment(Pos.TOP_LEFT);
+		ScrollPane scrollVaisseau = new ScrollPane();
+		scrollVaisseau.setContent(vboxVaisseau);
+		afficherDetailsVaisseauEtVoyages(vboxVaisseau, id);
+
+		Scene scene = new Scene(scrollVaisseau, 800,800);
+		
 		changerScene(scene);
 		
 	}
 
+
+
+
+	private void afficherDetailsVaisseauEtVoyages(VBox racine, int id) {
+		int decalage = 80;
+		controleur.afficherVoyagesPourUnVaisseau(id);
+
+		System.out.println(listeVoyagePourUnVaisseau);
+
+		for(Voyage unVoyage : listeVoyagePourUnVaisseau )
+		{
+			System.out.println(unVoyage);
+			Label labelVoyage = new Label(unVoyage.getDepart());
+			labelVoyage.setTranslateX(0);
+			labelVoyage.setTranslateY(decalage);
+			racine.getChildren().addAll(labelVoyage);
+			
+		}
+		
+	}
 
 
 
