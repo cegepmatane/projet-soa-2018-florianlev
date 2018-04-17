@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  mar. 03 avr. 2018 à 07:21
+-- Généré le :  mar. 17 avr. 2018 à 12:00
 -- Version du serveur :  5.7.20
 -- Version de PHP :  7.1.13
 
@@ -55,6 +55,7 @@ INSERT INTO `vaisseau` (`idVaisseau`, `nomModele`, `kilometrage`, `nombrePlace`,
 
 CREATE TABLE `voyage` (
   `idVoyage` int(11) NOT NULL,
+  `idVaisseau` int(11) NOT NULL,
   `depart` text NOT NULL,
   `arrivee` text NOT NULL,
   `prix` int(11) NOT NULL,
@@ -65,17 +66,17 @@ CREATE TABLE `voyage` (
 -- Déchargement des données de la table `voyage`
 --
 
-INSERT INTO `voyage` (`idVoyage`, `depart`, `arrivee`, `prix`, `distance`) VALUES
-(1, 'tatouine', 'corusante', 1000, 3000),
-(2, 'terre', 'mars', 500, 1000),
-(3, 'lune', 'jupiter', 500, 5000),
-(4, 'berlin', 'pluton', 6000, 4000),
-(5, 'venus', 'terre', 1000, 500),
-(6, 'saturne', 'porigon', 400, 30000),
-(7, 'yavin 4', 'mustafar', 6000, 900000),
-(8, 'neptune', 'terre', 4000, 600),
-(9, 'mars', 'tatouine', 4000, 8000),
-(10, 'uranus', 'mercure', 90000, 40000);
+INSERT INTO `voyage` (`idVoyage`, `idVaisseau`, `depart`, `arrivee`, `prix`, `distance`) VALUES
+(1, 1, 'tatouine', 'corusante', 1000, 3000),
+(2, 1, 'terre', 'mars', 500, 1000),
+(3, 3, 'lune', 'jupiter', 500, 5000),
+(4, 2, 'berlin', 'pluton', 6000, 4000),
+(5, 2, 'venus', 'terre', 1000, 500),
+(6, 5, 'saturne', 'porigon', 400, 30000),
+(7, 5, 'yavin 4', 'mustafar', 6000, 900000),
+(8, 5, 'neptune', 'terre', 4000, 600),
+(9, 1, 'mars', 'tatouine', 4000, 8000),
+(10, 1, 'uranus', 'mercure', 90000, 40000);
 
 --
 -- Index pour les tables déchargées
