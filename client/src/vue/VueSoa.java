@@ -102,6 +102,7 @@ public class VueSoa extends Application {
 		{
 			System.out.println(unVoyage);
 			Label labelVoyage = new Label(unVoyage.getDepart());
+			
 			labelVoyage.setTranslateX(0);
 			labelVoyage.setTranslateY(decalage);
 			racine.getChildren().addAll(labelVoyage);
@@ -174,10 +175,13 @@ public class VueSoa extends Application {
 		for(Voyage unVoyage : listeVoyagePourUnVaisseau )
 		{
 			System.out.println(unVoyage);
-			Label labelVoyage = new Label(unVoyage.getDepart());
-			labelVoyage.setTranslateX(0);
-			labelVoyage.setTranslateY(decalage);
-			racine.getChildren().addAll(labelVoyage);
+			Label labelDepart = new Label(unVoyage.getDepart());
+			Label labelArrivee = new Label(unVoyage.getArrivee());
+			Label labelDistance = new Label(unVoyage.getDistance());
+			Label labelprix= new Label(unVoyage.getPrix());
+			labelDepart.setTranslateX(0);
+			labelDepart.setTranslateY(decalage);
+			racine.getChildren().addAll(labelDepart,labelArrivee,labelDistance,labelprix);
 			
 		}
 		

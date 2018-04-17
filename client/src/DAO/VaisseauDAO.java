@@ -82,6 +82,8 @@ public class VaisseauDAO{
 
 				vaisseau.setNomModele(nomModele);
 				
+				
+				
 				System.out.println(vaisseau.getIdVaisseau());
 				listeVaisseau.add(vaisseau);
 				
