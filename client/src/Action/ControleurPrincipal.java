@@ -40,7 +40,7 @@ public class ControleurPrincipal {
 	
 	public void afficherVoyagesPourUnVaisseau(int id) {
 		List<Voyage> listeVoyage = voyageDAO.rechercherVoyage(id);
-		vue.setListeVoyages(listeVoyage);
+		vue.setListeVoyagePourUnVaisseau(listeVoyage);
 		
 	}
 	
