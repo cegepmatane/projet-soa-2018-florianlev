@@ -80,12 +80,7 @@ public class VoyagesDAO {
 				String distance = noeudVoyage.getElementsByTagName("distance").item(0).getTextContent();
 				voyage.setDistance(distance);
 
-				//voyage.setIdVaisseau(Integer.parseInt(id));
 				listeVoyage.add(voyage);
-
-				
-				
-				//System.out.println(listeVoyage);
 
 			}
 
