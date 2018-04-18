@@ -217,6 +217,16 @@ public class VueSoa extends Application {
 		bouttonRetour.setTranslateY(20);
 		racine.getChildren().add(bouttonRetour);
 		
+		bouttonRetour.setOnAction(new EventHandler<ActionEvent>() 
+		{
+			public void handle(ActionEvent event)
+			{
+				afficerScenePrincipale();
+			}
+			
+			
+			
+		});
 		
 	}
 
