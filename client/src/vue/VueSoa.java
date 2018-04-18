@@ -1,25 +1,21 @@
 package vue;
 
 import javafx.scene.control.Button;
-import java.io.Console;
+
 import java.util.List;
 
-import javax.xml.stream.events.StartDocument;
+
 
 import Action.ControleurPrincipal;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -60,7 +56,7 @@ public class VueSoa extends Application {
 	
 	public VueSoa()
 	{
-		controleur = new ControleurPrincipal(this);
+		
 	}
 	
 
@@ -76,6 +72,7 @@ public class VueSoa extends Application {
 
 
 	protected void afficerScenePrincipale(){
+		controleur = new ControleurPrincipal(this);
 		controleur.afficherContenu();
 
 		 vboxVaisseau = new VBox();
