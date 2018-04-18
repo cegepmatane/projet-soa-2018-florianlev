@@ -10,12 +10,15 @@ import Action.ControleurPrincipal;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -34,12 +37,26 @@ public class VueSoa extends Application {
 
 	protected Text texte1;
 	
+	protected Scene scene ;
+	protected VBox vboxVaisseau;
+	protected VBox vboxVoyage ;
+	
+	protected ScrollPane scrollListeVaisseau;
+	protected ScrollPane scrollListeVoyage;
+	
+	protected TabPane racine;
 	protected Tab ongletListerVoyages;
 	protected Tab ongletListerVaisseau;
+	
+	protected Label labelVaisseau;
 	protected Label labelDepart;
 	protected Label labelArrivee;
 	protected Label labelDistance;
 	protected Label labelPrix;
+	protected Label labelVoyage;
+	
+	protected Button bouttonDetailVaisseau;
+	protected Button bouttonRetour;
 	
 	public VueSoa()
 	{
@@ -61,24 +78,24 @@ public class VueSoa extends Application {
 	protected void afficerScenePrincipale(){
 		controleur.afficherContenu();
 
-		VBox vboxVaisseau = new VBox();
-		VBox vboxVoyage = new VBox();
+		 vboxVaisseau = new VBox();
+		vboxVoyage = new VBox();
 		
 		vboxVaisseau.setAlignment(Pos.TOP_LEFT);
 		vboxVoyage.setAlignment(Pos.TOP_LEFT);
 		
-		ScrollPane scrollListeVaisseau = new ScrollPane();
-		ScrollPane scrollListeVoyage = new ScrollPane();
+		scrollListeVaisseau = new ScrollPane();
+		 scrollListeVoyage = new ScrollPane();
 
 		scrollListeVaisseau.setContent(vboxVaisseau);
 		scrollListeVoyage.setContent(vboxVoyage);
 
-		TabPane racine = new TabPane();
+		 racine = new TabPane();
 		
 		afficherVaisseau(vboxVaisseau);
 		afficherVoyages(vboxVoyage);
 		
-		Scene scene = new Scene(racine, 800,800);
+		 scene = new Scene(racine, 800,800);
 		
 		ongletListerVaisseau = new Tab("");
 		ongletListerVaisseau.setText("Liste des vaisseau");
@@ -105,7 +122,7 @@ public class VueSoa extends Application {
 		for(Voyage unVoyage : listeVoyages )
 		{
 			System.out.println(unVoyage);
-			Label labelVoyage = new Label(unVoyage.getDepart());
+			 labelVoyage = new Label(unVoyage.getDepart());
 			
 			labelVoyage.setTranslateX(0);
 			labelVoyage.setTranslateY(decalage);
@@ -120,8 +137,8 @@ public class VueSoa extends Application {
 		
 		for(Vaisseau unVaisseau : listeVaisseaux )
 		{
-			Label labelVaisseau = new Label(unVaisseau.getNomModele());
-			Button bouttonDetailVaisseau = new Button("Detail");
+			labelVaisseau = new Label(unVaisseau.getNomModele());
+			 bouttonDetailVaisseau = new Button("Detail");
 			
 	
 			labelVaisseau.setTranslateX(0);
@@ -146,6 +163,10 @@ public class VueSoa extends Application {
 				afficherSceneDetailVaisseau(Integer.parseInt(boutton.getId()));
 			}
 		});
+		
+		
+		
+		
 		
 	}
 
@@ -185,9 +206,17 @@ public class VueSoa extends Application {
 			labelDepart.setTranslateX(0);
 			labelDepart.setTranslateY(decalage);
 			
+			 
+			
 			racine.getChildren().addAll(labelDepart,labelArrivee,labelDistance,labelPrix);
 			
 		}
+		
+		bouttonRetour = new Button("Retour");
+		bouttonRetour.setTranslateX(20);
+		bouttonRetour.setTranslateY(20);
+		racine.getChildren().add(bouttonRetour);
+		
 		
 	}
 
