@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
 import modele.Vaisseau;
 import modele.Voyage;
 
-public class VoyagesDAO {
+public class VoyagesDAO implements VoyagesURL{
 	
 	List<Voyage> listeVoyage;
 	String xml = null;
@@ -36,7 +36,7 @@ public class VoyagesDAO {
 	{
 		try
 		{
-			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVoyages.php?idVaisseau=" + idVaisseau);
+			URL urlListeVaisseau = new URL(URL_VOYAGES + idVaisseau);
 			System.out.println(urlListeVaisseau);
 			
 			String derniereBalise = "</voyages>";
