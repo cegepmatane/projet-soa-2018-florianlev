@@ -21,7 +21,7 @@ import org.xml.sax.SAXException;
 
 import modele.Vaisseau;
 
-public class VaisseauDAO{
+public class VaisseauDAO implements VaisseauURL{
 	
 	List<Vaisseau> listeVaisseau;
 	String xml = null;
@@ -38,7 +38,7 @@ public class VaisseauDAO{
 	{
 		try
 		{
-			URL urlListeVaisseau = new URL("http://localhost/service-voyage/src/vaisseau/liste/listeVaisseau.php");
+			URL urlListeVaisseau = new URL(URL_VAISSEAU);
 			String derniereBalise = "</vaisseaux>";
 			InputStream flux = urlListeVaisseau.openConnection().getInputStream();
 			Scanner lecteur = new Scanner(flux);
