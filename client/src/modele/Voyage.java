@@ -9,6 +9,13 @@ public class Voyage {
 	protected String distance;
 	
 	
+	/*public Voyage(String depart, String arrivee, String prix,String distance) {
+		super();
+		this.depart = depart;
+		this.arrivee = arrivee;
+		this.prix = prix;
+		this.distance = distance;
+	}*/
 	public int getIdVoyage() {
 		return idVoyage;
 	}
