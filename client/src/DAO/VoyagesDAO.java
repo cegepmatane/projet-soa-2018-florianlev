@@ -98,5 +98,10 @@ public class VoyagesDAO implements VoyagesURL{
 		}
 		return listeVoyage;
 	}
+	public void ajouterVoyage(Voyage voyage)
+	{
+		
+		
+	}
 
 }
