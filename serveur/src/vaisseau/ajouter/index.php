@@ -3,7 +3,7 @@
 	
 	include "../../accesseur/VoyagesDAO.php";
 	$voyagesDAO = new VoyagesDAO();
-	//print_r($voyageDAO);
+	//print_r($voyagesDAO);
 	
 	$voyageTableau = $_POST;
 	$voyage = new stdClass();

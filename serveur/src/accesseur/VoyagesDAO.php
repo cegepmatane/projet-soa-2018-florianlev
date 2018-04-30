@@ -22,8 +22,8 @@
         }
 		function ajouterVoyagePourUnVaisseau($voyage)
 		{
-			//echo "ajouterVoyagePourUnVaisseau()";
-			//print_r($vaisseau);
+			echo "ajouterVoyagePourUnVaisseau()";
+			print_r($vaisseau);
 			
 			$SQL_AJOUTER_VOYAGE = "INSERT into voyage(idVaisseau, depart, arrivee, prix, distance) VALUES('$voyage->idVaisseau','$voyage->depart','$voyage->arrivee','$voyage->prix','$voyage->distance')";
 			
